@@ -1,0 +1,20 @@
+class AuthService {
+  static String? _mockOtp;
+
+  // Simulate sending OTP
+  static Future<bool> sendOtp(String phoneOrEmail) async {
+    await Future.delayed(const Duration(seconds: 2));
+
+    // Generate simple 4-digit OTP
+    _mockOtp = '1234';
+
+    return true;
+  }
+
+  // Verify OTP
+  static Future<bool> verifyOtp(String otp) async {
+    await Future.delayed(const Duration(seconds: 1));
+
+    return otp == _mockOtp;
+  }
+}
