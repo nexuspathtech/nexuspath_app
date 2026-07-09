@@ -53,11 +53,22 @@ class _OtpScreenState extends State<OtpScreen> {
               decoration: const InputDecoration(labelText: "Enter OTP"),
             ),
             const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: _isVerifying ? null : _verifyOtp,
-              child: _isVerifying
-                  ? const CircularProgressIndicator()
-                  : const Text("Verify"),
+            SizedBox(
+              width: double.infinity,
+              height: 50,
+              child: ElevatedButton(
+                onPressed: _isVerifying ? null : _verifyOtp,
+                child: _isVerifying
+                    ? const SizedBox(
+                        width: 24,
+                        height: 24,
+                        child: CircularProgressIndicator(
+                          strokeWidth: 2,
+                          color: Colors.white,
+                        ),
+                      )
+                    : const Text("Verify"),
+              ),
             ),
           ],
         ),

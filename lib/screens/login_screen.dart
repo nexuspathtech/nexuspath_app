@@ -24,7 +24,9 @@ class _LoginScreenState extends State<LoginScreen> {
 
     setState(() => _isLoading = true);
 
-    bool success = await AuthService.sendOtp(input);
+    final success = await AuthService.sendOtp(input);
+
+    if (!mounted) return;
 
     setState(() => _isLoading = false);
 
